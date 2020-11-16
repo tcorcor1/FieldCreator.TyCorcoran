@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FieldCreator.TyCorcoran", "FieldCreator.TyCorcoran.csproj", "{945FA771-D703-4B1E-BF4A-B349271E82BE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{945FA771-D703-4B1E-BF4A-B349271E82BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{945FA771-D703-4B1E-BF4A-B349271E82BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{945FA771-D703-4B1E-BF4A-B349271E82BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{945FA771-D703-4B1E-BF4A-B349271E82BE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {73FD914F-9015-4597-BD30-C6150ECF5D9F}
+	EndGlobalSection
+EndGlobal
