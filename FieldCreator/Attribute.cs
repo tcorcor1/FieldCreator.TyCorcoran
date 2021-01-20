@@ -11,6 +11,7 @@ using Microsoft.Xrm.Sdk.Messages;
 using Microsoft.Xrm.Sdk.Metadata;
 using CsvHelper;
 using CsvHelper.Configuration.Attributes;
+using System.Threading;
 
 namespace FieldCreator.TyCorcoran
 {
@@ -93,7 +94,7 @@ namespace FieldCreator.TyCorcoran
         public static List<Attribute> ReturnAttributeList(string filePath)
         {
             using (var reader = new StreamReader(filePath))
-            using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+            using (var csv = new CsvReader(reader, CultureInfo.CurrentCulture))
             {
                 var csvAttributeList = csv.GetRecords<Attribute>().ToList();
                 if (csvAttributeList.Count == 0)
