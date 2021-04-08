@@ -118,7 +118,7 @@ namespace FieldCreator.TyCorcoran
             {
                 foreach (var attribute in globalOptionSetList)
                 {
-                    string optionSetSchemaName = (string.IsNullOrWhiteSpace(attribute.GlobalOSSchemaName)) ? attribute.FieldSchemaName.ToLower() : attribute.GlobalOSSchemaName.ToLower();
+                    string optionSetSchemaName = (string.IsNullOrWhiteSpace(attribute.GlobalOSSchemaName)) ? attribute.FieldSchemaName : attribute.GlobalOSSchemaName;
                     string optionSetDisplayName = (string.IsNullOrWhiteSpace(attribute.GlobalOSDisplayName)) ? attribute.FieldLabel : attribute.GlobalOSDisplayName;
                     string regexSantizedName = "[^a-zA-Z0-9_]";
                     OptionMetadataCollection globalOSCollection = AttrBase.CreateOptionMetaDataCollection(attribute);

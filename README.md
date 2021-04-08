@@ -23,8 +23,8 @@ Import template contains sample data for reference. For first-time users, I woul
 | Option Set Type | Required for Field Type "Option Set" |
 | Option Set Values | Required for Field Type "Option Set" |
 | New Global Option Set Display Name | Required for New Global Option Set type |
-| New Global Option Set Schema Name | Required for New Global Option Set type | 
-| Existing Global Option Set Schema Name | Required for Existing Global Option Set type | 
+| New Global Option Set Schema Name | Required for New Global Option Set type (lowercase) | 
+| Existing Global Option Set Schema Name | Required for Existing Global Option Set type (lowercase) | 
 | Precision | Non-required; Default is 2 | 
 | Referenced Entity | Required for lookups; Must be schema name of entity | 
 | One > N Relationship Schema Name | Required for lookups; Must be schema name of entity | 

@@ -19,7 +19,7 @@ namespace FieldCreator.TyCorcoran
         public string AttrEntitySchemaName => Regex.Replace(_attribute.EntitySchemaName.ToLower(), _regexSanitizedSchemaName, string.Empty);
         public string AttrSolution => _attribute.SolutionUniqueName;
         public string AttrDescription => _attribute.Description;
-        public string AttrSchemaName => Regex.Replace(_attribute.FieldSchemaName.ToLower(), _regexSanitizedSchemaName, string.Empty);
+        public string AttrSchemaName => Regex.Replace(_attribute.FieldSchemaName, _regexSanitizedSchemaName, string.Empty);
         public string AttrFieldLabel => _attribute.FieldLabel;
         public AttributeRequiredLevel AttrRequiredLevel
         {
