@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Metadata;
 
@@ -6,9 +7,11 @@ namespace FieldCreator.TyCorcoran
 {
     public class AttrOptionSet : AttrBase, IAttribute
     {
-        public AttrOptionSet(Attribute Attribute) : base(Attribute) { }
+        public AttrOptionSet (Attribute Attribute) : base(Attribute)
+        {
+        }
 
-        public AttributeMetadata ReturnAttributeMetadata(Attribute attribute)
+        public AttributeMetadata ReturnAttributeMetadata (Attribute attribute)
         {
             try
             {
@@ -18,11 +21,11 @@ namespace FieldCreator.TyCorcoran
                         var OptionSetAttr = new PicklistAttributeMetadata()
                         {
                             SchemaName = AttrSchemaName,
-                            DisplayName = new Label(AttrFieldLabel, 1033),
+                            DisplayName = new Label(AttrFieldLabel, CultureInfo.CurrentCulture.LCID),
                             RequiredLevel = new AttributeRequiredLevelManagedProperty(AttrRequiredLevel),
                             IsAuditEnabled = new BooleanManagedProperty(AttrAuditEnabled),
                             OptionSet = GenerateOptionSetMetadata(),
-                            Description = (AttrDescription != null) ? new Label(AttrDescription, 1033) : null
+                            Description = (AttrDescription != null) ? new Label(AttrDescription, CultureInfo.CurrentCulture.LCID) : null
                         };
                         return OptionSetAttr;
 
@@ -30,10 +33,10 @@ namespace FieldCreator.TyCorcoran
                         var NewGlobalOptionSetAttr = new PicklistAttributeMetadata()
                         {
                             SchemaName = AttrSchemaName,
-                            DisplayName = new Label(AttrFieldLabel, 1033),
+                            DisplayName = new Label(AttrFieldLabel, CultureInfo.CurrentCulture.LCID),
                             RequiredLevel = new AttributeRequiredLevelManagedProperty(AttrRequiredLevel),
                             IsAuditEnabled = new BooleanManagedProperty(AttrAuditEnabled),
-                            Description = (AttrDescription != null) ? new Label(AttrDescription, 1033) : null,
+                            Description = (AttrDescription != null) ? new Label(AttrDescription, CultureInfo.CurrentCulture.LCID) : null,
                             OptionSet = new OptionSetMetadata
                             {
                                 IsGlobal = true,
@@ -46,10 +49,10 @@ namespace FieldCreator.TyCorcoran
                         var ExistGlobalOptionSetAttr = new PicklistAttributeMetadata()
                         {
                             SchemaName = AttrSchemaName,
-                            DisplayName = new Label(AttrFieldLabel, 1033),
+                            DisplayName = new Label(AttrFieldLabel, CultureInfo.CurrentCulture.LCID),
                             RequiredLevel = new AttributeRequiredLevelManagedProperty(AttrRequiredLevel),
                             IsAuditEnabled = new BooleanManagedProperty(AttrAuditEnabled),
-                            Description = (AttrDescription != null) ? new Label(AttrDescription, 1033) : null,
+                            Description = (AttrDescription != null) ? new Label(AttrDescription, CultureInfo.CurrentCulture.LCID) : null,
                             OptionSet = new OptionSetMetadata
                             {
                                 IsGlobal = true,

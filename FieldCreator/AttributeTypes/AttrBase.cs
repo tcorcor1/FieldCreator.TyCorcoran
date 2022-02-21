@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using Microsoft.Xrm.Sdk;
@@ -21,6 +22,7 @@ namespace FieldCreator.TyCorcoran
         public string AttrDescription => _attribute.Description;
         public string AttrSchemaName => Regex.Replace(_attribute.FieldSchemaName, _regexSanitizedSchemaName, string.Empty);
         public string AttrFieldLabel => _attribute.FieldLabel;
+
         public AttributeRequiredLevel AttrRequiredLevel
         {
             get
@@ -31,19 +33,23 @@ namespace FieldCreator.TyCorcoran
                     case "None":
                         reqlevel = AttributeRequiredLevel.None;
                         return reqlevel;
+
                     case "System Required":
                         reqlevel = AttributeRequiredLevel.ApplicationRequired;
                         return reqlevel;
+
                     case "Recommended":
                         reqlevel = AttributeRequiredLevel.Recommended;
                         return reqlevel;
+
                     default:
                         reqlevel = 0;
                         return reqlevel;
                 }
             }
         }
-        public OptionSetMetadata GenerateOptionSetMetadata()
+
+        public OptionSetMetadata GenerateOptionSetMetadata ()
         {
             var osMetaDataCollection = CreateOptionMetaDataCollection();
             return new OptionSetMetadata(osMetaDataCollection)
@@ -52,7 +58,8 @@ namespace FieldCreator.TyCorcoran
                 OptionSetType = (_attribute.FieldType == "FieldCreator.TyCorcoran.AttrOptionSet") ? OptionSetType.Picklist : default
             };
         }
-        public OptionMetadataCollection CreateOptionMetaDataCollection()
+
+        public OptionMetadataCollection CreateOptionMetaDataCollection ()
         {
             string optionSetValueString = _attribute.OptionSetValues;
             var optionSetMetadataCollection = new List<OptionMetadata>();
@@ -61,14 +68,15 @@ namespace FieldCreator.TyCorcoran
                 var optionSetStringList = new List<string>(optionSetValueString.Split('|'));
                 foreach (var option in optionSetStringList)
                 {
-                    var osMeta = new OptionMetadata(new Label(option, 1033), null);
+                    var osMeta = new OptionMetadata(new Label(option, CultureInfo.CurrentCulture.LCID), null);
                     optionSetMetadataCollection.Add(osMeta);
                 }
             };
             var optionMetaCollection = new OptionMetadataCollection(optionSetMetadataCollection);
             return optionMetaCollection;
         }
-        public static OptionMetadataCollection CreateOptionMetaDataCollection(Attribute attribute)
+
+        public static OptionMetadataCollection CreateOptionMetaDataCollection (Attribute attribute)
         {
             string optionSetValueString = attribute.OptionSetValues;
             var optionSetMetadataCollection = new List<OptionMetadata>();
@@ -77,7 +85,7 @@ namespace FieldCreator.TyCorcoran
                 var optionSetStringList = new List<string>(optionSetValueString.Split('|'));
                 foreach (var option in optionSetStringList)
                 {
-                    var osMeta = new OptionMetadata(new Label(option, 1033), null);
+                    var osMeta = new OptionMetadata(new Label(option, CultureInfo.CurrentCulture.LCID), null);
                     optionSetMetadataCollection.Add(osMeta);
                 }
             };

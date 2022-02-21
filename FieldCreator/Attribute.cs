@@ -30,68 +30,68 @@ namespace FieldCreator.TyCorcoran
             {"Currency", "FieldCreator.TyCorcoran.AttrMoney"},
             {"Lookup", "FieldCreator.TyCorcoran.AttrLookup"}
         };
-        
+
         [Name("Field Type")]
         public string FieldType { get; set; }
-        
+
         [Name("Entity Schema Name")]
         public string EntitySchemaName { get; set; }
-        
+
         [Name("Field Label")]
         public string FieldLabel { get; set; }
-        
+
         [Name("Field Schema Name")]
         public string FieldSchemaName { get; set; }
-        
+
         [Name("Required Level")]
         public string RequiredLevel { get; set; }
-        
+
         [Name("Solution Unique Name")]
         public string SolutionUniqueName { get; set; }
-        
+
         [Name("Description")]
         public string Description { get; set; }
-        
+
         [Name("Audit Enabled")]
         public string AuditEnabled { get; set; }
-        
+
         [Name("Option Set Type")]
         public string OptionSetType { get; set; }
-        
+
         [Name("Option Set Values")]
         public string OptionSetValues { get; set; }
-        
+
         [Name("New Global Option Set Display Name")]
         public string GlobalOSDisplayName { get; set; }
-        
+
         [Name("New Global Option Set Schema Name")]
         public string GlobalOSSchemaName { get; set; }
-        
+
         [Name("Existing Global Option Set Schema Name")]
         public string ExistingGlobalOSSchemaName { get; set; }
-        
+
         [Name("Referenced Entity")]
         public string ReferencedEntity { get; set; }
-        
+
         [Name("One > N Relationship Schema Name")]
         public string OnetoNRelationshipSchemaName { get; set; }
-        
+
         [Name("Max Length (Single Line of Text)")]
         public string MaxLengthSingle { get; set; }
-        
+
         [Name("Max Length (Multiple Lines of Text)")]
         public string MaxLengthMultiple { get; set; }
-        
+
         [Name("Max Value (Whole Number)")]
         public string MaxValueWhole { get; set; }
-        
+
         [Name("Min Value (Whole Number)")]
         public string MinValueWhole { get; set; }
-        
+
         [Name("Precision")]
         public string Precision { get; set; }
-        
-        public static List<Attribute> ReturnAttributeList(string filePath)
+
+        public static List<Attribute> ReturnAttributeList (string filePath)
         {
             using (var reader = new StreamReader(filePath))
             using (var csv = new CsvReader(reader, CultureInfo.CurrentCulture))
@@ -103,7 +103,7 @@ namespace FieldCreator.TyCorcoran
             }
         }
 
-        public static void ProcessGlobalOptionSetAttributeList(BackgroundWorker worker, List<Attribute> attributeList, IOrganizationService service)
+        public static void ProcessGlobalOptionSetAttributeList (BackgroundWorker worker, List<Attribute> attributeList, IOrganizationService service)
         {
             worker.ReportProgress(0, "Reviewing/Processing Global Option Sets");
             var globalOptionSetList = new List<Attribute>();
@@ -125,7 +125,7 @@ namespace FieldCreator.TyCorcoran
                     var createOptionSetMeta = new OptionSetMetadata(globalOSCollection)
                     {
                         Name = Regex.Replace(optionSetSchemaName, regexSantizedName, string.Empty),
-                        DisplayName = new Label(optionSetDisplayName, 1033),
+                        DisplayName = new Label(optionSetDisplayName, CultureInfo.CurrentCulture.LCID),
                         IsGlobal = true,
                         OptionSetType = Microsoft.Xrm.Sdk.Metadata.OptionSetType.Picklist
                     };
@@ -147,7 +147,7 @@ namespace FieldCreator.TyCorcoran
             }
         }
 
-        public static void ProcessAttributeList(BackgroundWorker worker, List<Attribute> attributeList, IOrganizationService service)
+        public static void ProcessAttributeList (BackgroundWorker worker, List<Attribute> attributeList, IOrganizationService service)
         {
             var importLogs = new List<string>();
             var importEntities = new List<string>();
@@ -176,7 +176,7 @@ namespace FieldCreator.TyCorcoran
                             {
                                 Behavior = AssociatedMenuBehavior.UseLabel,
                                 Group = AssociatedMenuGroup.Details,
-                                Label = new Label(attribute.AttrEntitySchemaName, 1033),
+                                Label = new Label(attribute.AttrEntitySchemaName, CultureInfo.CurrentCulture.LCID),
                                 Order = 10000
                             },
                             CascadeConfiguration = new CascadeConfiguration

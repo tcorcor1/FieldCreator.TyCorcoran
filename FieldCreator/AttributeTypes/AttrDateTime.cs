@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Metadata;
 
@@ -6,21 +7,23 @@ namespace FieldCreator.TyCorcoran
 {
     public class AttrDateTime : AttrBase, IAttribute
     {
-        public AttrDateTime (Attribute attribute) : base (attribute) {}
+        public AttrDateTime (Attribute attribute) : base(attribute)
+        {
+        }
 
-        public AttributeMetadata ReturnAttributeMetadata(Attribute attribute)
+        public AttributeMetadata ReturnAttributeMetadata (Attribute attribute)
         {
             try
             {
                 return new DateTimeAttributeMetadata()
                 {
                     SchemaName = AttrSchemaName,
-                    DisplayName = new Label(AttrFieldLabel, 1033),
+                    DisplayName = new Label(AttrFieldLabel, CultureInfo.CurrentCulture.LCID),
                     RequiredLevel = new AttributeRequiredLevelManagedProperty(AttrRequiredLevel),
                     IsAuditEnabled = new BooleanManagedProperty(AttrAuditEnabled),
                     DateTimeBehavior = DateTimeBehavior.UserLocal,
                     Format = DateTimeFormat.DateOnly,
-                    Description = (AttrDescription != null) ? new Label(AttrDescription, 1033) : null
+                    Description = (AttrDescription != null) ? new Label(AttrDescription, CultureInfo.CurrentCulture.LCID) : null
                 };
             }
             catch (Exception ex)

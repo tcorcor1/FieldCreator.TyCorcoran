@@ -1,7 +1,9 @@
 # FieldCreator.TyCorcoran
-XRM Toolbox plugin used to bulk create Microsoft Dynamics fields via import of a csv.
+XrmToolbox plugin used to bulk create Microsoft Dynamics fields via CSV import.
 
-How to Use:
+For more information on how to use this tool please see:
+<https://tldr-dynamics.com/blog/field-creator>
+
 # [1] Download the import template
 
 Import template contains sample data for reference. For first-time users, I would recommend reviewing the Readme tab as it will outline important details such as what is required for import. Details also listed below:
