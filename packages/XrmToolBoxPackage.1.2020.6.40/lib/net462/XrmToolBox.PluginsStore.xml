@@ -1,0 +1,189 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>XrmToolBox.PluginsStore</name>
+    </assembly>
+    <members>
+        <member name="M:AiConfig.#ctor(System.String,System.String,System.Reflection.Assembly,System.String)">
+            <summary>
+            Initializes Application Insights configuration.
+            When called from a tool, make sure to pass Assembly.GetExecutingAssembly() as loggingassembly parameter!!
+            </summary>
+            <param name="endpoint">AppInsights endpoint, usually https://dc.services.visualstudio.com/v2/track</param>
+            <param name="ikey">Instrumentation Key for the AppInsights instance in the Azure portal</param>
+            <param name="loggingassembly">Assembly info to include in logging, usually pass Assembly.GetExecutingAssembly()</param>
+            <param name="toolname">Override name of the tool, defaults to last part of the logging assembly name</param>
+        </member>
+        <member name="M:AppInsights.#ctor(System.String,System.String,System.Reflection.Assembly,System.String)">
+            <summary>
+            Initializes Application Insights instance.
+            When called from a tool, make sure to pass Assembly.GetExecutingAssembly() as loggingassembly parameter!!
+            </summary>
+            <param name="endpoint">AppInsights endpoint, usually https://dc.services.visualstudio.com/v2/track</param>
+            <param name="ikey">Instrumentation Key for the AppInsights instance in the Azure portal</param>
+            <param name="loggingassembly">Assembly info to include in logging, usually pass Assembly.GetExecutingAssembly()</param>
+            <param name="toolname">Override name of the tool, defaults to last part of the logging assembly name</param>
+        </member>
+        <member name="M:AppInsights.#ctor(AiConfig)">
+            <summary>
+            Obsolete constructor
+            </summary>
+            <param name="aiConfig">Application Insights configuration</param>
+        </member>
+        <member name="M:XrmToolBox.PluginsStore.FileInfoExtensions.ImplementsXrmToolBoxPlugin(System.IO.FileInfo)">
+            <summary>
+            Checks if the current file contains types that implement
+            IXrmToolBoxPlugin interface
+            </summary>
+            <param name="fi">Current file info</param>
+            <returns>Value that indicates if the current file contains types that implement
+            IXrmToolBoxPlugin interface</returns>
+        </member>
+        <member name="F:XrmToolBox.PluginsStore.LicenseAcceptanceForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:XrmToolBox.PluginsStore.LicenseAcceptanceForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:XrmToolBox.PluginsStore.LicenseAcceptanceForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:XrmToolBox.PluginsStore.ListViewItemComparer">
+            <summary>
+            Compares two listview items for sorting
+            </summary>
+        </member>
+        <member name="F:XrmToolBox.PluginsStore.ListViewItemComparer.col">
+            <summary>
+            Index of sorting column
+            </summary>
+        </member>
+        <member name="F:XrmToolBox.PluginsStore.ListViewItemComparer.innerOrder">
+            <summary>
+            Sort order
+            </summary>
+        </member>
+        <member name="M:XrmToolBox.PluginsStore.ListViewItemComparer.#ctor">
+            <summary>
+            Initializes a new instance of class ListViewItemComparer
+            </summary>
+        </member>
+        <member name="M:XrmToolBox.PluginsStore.ListViewItemComparer.#ctor(System.Int32,System.Windows.Forms.SortOrder)">
+            <summary>
+            Initializes a new instance of class ListViewItemComparer
+            </summary>
+            <param name="column">Index of sorting column</param>
+            <param name="order">Sort order</param>
+        </member>
+        <member name="M:XrmToolBox.PluginsStore.ListViewItemComparer.Compare(System.Object,System.Object)">
+            <summary>
+            Compare tow objects
+            </summary>
+            <param name="x">object 1</param>
+            <param name="y">object 2</param>
+            <returns></returns>
+        </member>
+        <member name="M:XrmToolBox.PluginsStore.ListViewItemComparer.Compare(System.Windows.Forms.ListViewItem,System.Windows.Forms.ListViewItem)">
+            <summary>
+            Compare tow listview items
+            </summary>
+            <param name="x">Listview item 1</param>
+            <param name="y">Listview item 2</param>
+            <returns></returns>
+        </member>
+        <member name="F:XrmToolBox.PluginsStore.PluginLicense.components">
+            <summary> 
+            Variable nécessaire au concepteur.
+            </summary>
+        </member>
+        <member name="M:XrmToolBox.PluginsStore.PluginLicense.Dispose(System.Boolean)">
+            <summary> 
+            Nettoyage des ressources utilisées.
+            </summary>
+            <param name="disposing">true si les ressources managées doivent être supprimées ; sinon, false.</param>
+        </member>
+        <member name="M:XrmToolBox.PluginsStore.PluginLicense.InitializeComponent">
+            <summary> 
+            Méthode requise pour la prise en charge du concepteur - ne modifiez pas 
+            le contenu de cette méthode avec l'éditeur de code.
+            </summary>
+        </member>
+        <member name="T:XrmToolBox.PluginsStore.Properties.Resources">
+            <summary>
+              Une classe de ressource fortement typée destinée, entre autres, à la consultation des chaînes localisées.
+            </summary>
+        </member>
+        <member name="P:XrmToolBox.PluginsStore.Properties.Resources.ResourceManager">
+            <summary>
+              Retourne l'instance ResourceManager mise en cache utilisée par cette classe.
+            </summary>
+        </member>
+        <member name="P:XrmToolBox.PluginsStore.Properties.Resources.Culture">
+            <summary>
+              Remplace la propriété CurrentUICulture du thread actuel pour toutes
+              les recherches de ressources à l'aide de cette classe de ressource fortement typée.
+            </summary>
+        </member>
+        <member name="F:XrmToolBox.PluginsStore.StoreFormFromPortal.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:XrmToolBox.PluginsStore.StoreFormFromPortal.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:XrmToolBox.PluginsStore.StoreFormFromPortal.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:XrmToolBox.PluginsStore.StoreFromPortal.IsPluginDependencyCompatible(System.Version)">
+            <summary>
+            Verify version plugin is built for with current XTB version and a compatibility list
+            </summary>
+            <param name="xtbDependencyVersion"></param>
+            <returns></returns>
+        </member>
+        <member name="T:XrmToolBox.PluginsStore.XmlSerializerHelper">
+            <summary>
+            Classe utilitaire permettant de réaliser des opérations de
+            sérialisation et de déserialization
+            </summary>
+        </member>
+        <member name="M:XrmToolBox.PluginsStore.XmlSerializerHelper.Deserialize(System.String,System.Type)">
+            <summary>
+            Deserialize un contenu xml de type chaine de caractère en
+            une instance de la classe du type spécifié
+            </summary>
+            <param name="xmlContent">Contenu xml</param>
+            <param name="objectType">Type de l'objet de destination</param>
+            <returns>Objet déserialisé</returns>
+        </member>
+        <member name="M:XrmToolBox.PluginsStore.XmlSerializerHelper.Serialize(System.Object)">
+            <summary>
+            Sérialise un objet sous forme de chaine de caractère Xml
+            </summary>
+            <param name="o">Objet à sérialiser</param>
+            <returns>Chaine résultante</returns>
+        </member>
+        <member name="M:XrmToolBox.PluginsStore.XmlSerializerHelper.SerializeToFile(System.Object,System.String)">
+            <summary>
+            Sérialize un objet dans un fichier
+            </summary>
+            <param name="o">Objet à sérialiser</param>
+            <param name="path">Chemin du fichier de destination</param>
+        </member>
+    </members>
+</doc>
